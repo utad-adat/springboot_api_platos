@@ -5,9 +5,7 @@ import com.utad.Platos.Favoritos.services.PlatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +24,11 @@ public class PlatoController {
     public ResponseEntity<List<Plato> > getAll() {
         List<Plato> list = platoService.getPlatos();
         return ResponseEntity.ok(list);
+    }
+
+    @PostMapping
+    public ResponseEntity<Plato> save(@RequestBody Plato plato) {
+        Plato newPlato = platoService.save(plato);
+        return ResponseEntity.ok(newPlato);
     }
 }

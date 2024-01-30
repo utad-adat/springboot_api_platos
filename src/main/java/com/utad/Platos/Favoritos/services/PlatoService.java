@@ -22,4 +22,8 @@ public class PlatoService {
         return platoRepository.findAll();
     }
 
+    public Plato save(Plato plato){
+        return platoRepository.save(plato);
+    }
+
 }
