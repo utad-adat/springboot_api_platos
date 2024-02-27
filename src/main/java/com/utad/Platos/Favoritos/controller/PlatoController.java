@@ -39,8 +39,8 @@ public class PlatoController {
     }
 
     @PostMapping("/completo")
-    public ResponseEntity<Boolean> addPlatoCompleto(@RequestBody RequestPlatoConIngredientesDTO req) {
-        platoService.createPlatoConIngredientesYChef(req);
-        return ResponseEntity.ok(true);
+    public ResponseEntity<Plato> addPlatoCompleto(@RequestBody RequestPlatoConIngredientesDTO req) {
+        Plato platoCreated = platoService.createPlatoConIngredientesYChef(req);
+        return ResponseEntity.ok(platoCreated);
     }
 }

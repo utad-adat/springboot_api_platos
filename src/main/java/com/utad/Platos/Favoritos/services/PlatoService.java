@@ -37,7 +37,7 @@ public class PlatoService {
     }
 
     @Transactional
-    public void createPlatoConIngredientesYChef(RequestPlatoConIngredientesDTO platoDTO) {
+    public Plato createPlatoConIngredientesYChef(RequestPlatoConIngredientesDTO platoDTO) {
         // Crear plato nuevo
         Plato plato = new Plato();
         plato.setName(platoDTO.getName());
@@ -53,6 +53,6 @@ public class PlatoService {
         plato.setChef(chef);
 
         // Guardamos el plato en la bbdd
-        platoRepository.save(plato);
+        return platoRepository.save(plato);
     }
 }

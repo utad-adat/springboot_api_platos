@@ -14,6 +14,7 @@ public class Chef {
     private Long id;
 
     private String name;
+    private Double nota;
 
     @OneToMany(mappedBy = "chef")
     private Set<Plato> platos = new HashSet<>();
