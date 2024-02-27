@@ -1,5 +1,6 @@
 package com.utad.Platos.Favoritos.controller;
 
+import com.utad.Platos.Favoritos.dto.RequestPlatoConIngredientesDTO;
 import com.utad.Platos.Favoritos.model.Plato;
 import com.utad.Platos.Favoritos.services.PlatoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,16 @@ public class PlatoController {
     public ResponseEntity<Plato> save(@RequestBody Plato plato) {
         Plato newPlato = platoService.save(plato);
         return ResponseEntity.ok(newPlato);
+    }
+
+   @GetMapping("/todos")
+    public ResponseEntity<Boolean> todosLosPlatos() {
+        return ResponseEntity.ok(true);
+    }
+
+    @PostMapping("/completo")
+    public ResponseEntity<Boolean> addPlatoCompleto(@RequestBody RequestPlatoConIngredientesDTO req) {
+        platoService.createPlatoConIngredientesYChef(req);
+        return ResponseEntity.ok(true);
     }
 }
